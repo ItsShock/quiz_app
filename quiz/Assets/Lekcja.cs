@@ -7,15 +7,18 @@ public class Lekcja : MonoBehaviour
 {
     
     [SerializeField] Text txtTrescZad;
+    [SerializeField] Text txtNrZad;
     [SerializeField] Button[] przyciskiOdp;
     int numerZad = 0;
     [SerializeField] Zadanie[] zadania;
     Punkty pktskrytp;
+    int ileJestOdpWZadaniu;
     string odpUzytkownika;
     void Start()
     {
         pktskrytp = FindObjectOfType<Punkty>();
         TworzNoweZad();
+        WyswietlNrZad();
     }
 
     void PrzypiszElementyDoZad()
@@ -23,41 +26,68 @@ public class Lekcja : MonoBehaviour
         txtTrescZad.text = zadania[numerZad].PobierzTrescZad();
     }
 
+    void OdkryjPrzyciskiOdp()
+    {
+    for (int i = 0; i < ileJestOdpWZadaniu; i++)
+        {
+            przyciskiOdp[i].gameObject.SetActive(true);
+        }
+    }
     void TworzNoweZad()
     {
+        UkryjWszystkiePrzyciskiOdp();
+        SprawdzIleJestOdpWZad();
+        OdkryjPrzyciskiOdp();
         PrzypiszElementyDoZad();
         PrzypiszWartosciDoPrzyciskow();
+        WyswietlNrZad();
+    }
+
+    void SprawdzIleJestOdpWZad()
+    {
+        ileJestOdpWZadaniu = 0;
+        for (int i = 0; i < 3; i++)
+        {
+            if(zadania[numerZad].PobierzZlaOdp(i + 1) != "")
+            {
+                ileJestOdpWZadaniu ++;
+            }
+        }
+        ileJestOdpWZadaniu ++;
+        print("ilosc odpowiedzi w zadaniu: " + ileJestOdpWZadaniu);
     }
 
     void PrzypiszWartosciDoPrzyciskow()
     {
-        int losowaLiczba = Random.Range(0,4);
-        przyciskiOdp[losowaLiczba].GetComponentInChildren<Text>().text = zadania[numerZad].PobierzPrawidlowaOdp();
-        if(losowaLiczba == 0)
+        List<string> listaOdp = new List<string>();
+        for(int i = 0; i < ileJestOdpWZadaniu; i++)
         {
-            przyciskiOdp[losowaLiczba + 1].GetComponentInChildren<Text>().text = zadania[numerZad].PobierzZlaOdp(1);
-            przyciskiOdp[losowaLiczba + 2].GetComponentInChildren<Text>().text = zadania[numerZad].PobierzZlaOdp(2);
-            przyciskiOdp[losowaLiczba + 3].GetComponentInChildren<Text>().text = zadania[numerZad].PobierzZlaOdp(3);
+            if(i == 0)
+            {
+                listaOdp.Add(zadania[numerZad].PobierzPrawidlowaOdp());
+            }
+            else
+            {
+                listaOdp.Add(zadania[numerZad].PobierzZlaOdp(i));
+            }
         }
-        else if(losowaLiczba == 1)
+
+        int j = 0;
+        for(int i = listaOdp.Count; i > 0; i--)
         {
-            przyciskiOdp[losowaLiczba - 1].GetComponentInChildren<Text>().text = zadania[numerZad].PobierzZlaOdp(3);
-            przyciskiOdp[losowaLiczba + 1].GetComponentInChildren<Text>().text = zadania[numerZad].PobierzZlaOdp(1);
-            przyciskiOdp[losowaLiczba + 2].GetComponentInChildren<Text>().text = zadania[numerZad].PobierzZlaOdp(2);
-        }
-        else if(losowaLiczba == 2)
+            int rand = Random.Range(0, listaOdp.Count);
+            przyciskiOdp[j].GetComponentInChildren<Text>().text = listaOdp[rand];
+            listaOdp.RemoveAt(rand);
+            j++;
+        }                
+    }
+
+    void UkryjWszystkiePrzyciskiOdp()
+    {
+        for (int i = 0; i < przyciskiOdp.Length; i++)
         {
-            przyciskiOdp[losowaLiczba - 2].GetComponentInChildren<Text>().text = zadania[numerZad].PobierzZlaOdp(2);
-            przyciskiOdp[losowaLiczba - 1].GetComponentInChildren<Text>().text = zadania[numerZad].PobierzZlaOdp(1);
-            przyciskiOdp[losowaLiczba + 1].GetComponentInChildren<Text>().text = zadania[numerZad].PobierzZlaOdp(3);
+            przyciskiOdp[i].gameObject.SetActive(false);
         }
-        else
-        {
-            przyciskiOdp[losowaLiczba - 3].GetComponentInChildren<Text>().text = zadania[numerZad].PobierzZlaOdp(1);
-            przyciskiOdp[losowaLiczba - 2].GetComponentInChildren<Text>().text = zadania[numerZad].PobierzZlaOdp(3);
-            przyciskiOdp[losowaLiczba - 1].GetComponentInChildren<Text>().text = zadania[numerZad].PobierzZlaOdp(2);
-        }
-        
     }
 
     public void PobierzOdpUzytkownika(string odp) 
@@ -93,6 +123,11 @@ public class Lekcja : MonoBehaviour
             numerZad = 0;
             TworzNoweZad();
         }
+    }
+
+    void WyswietlNrZad()
+    {
+        txtNrZad.text = "Numer zadania: " + numerZad;
     }
 
     void Update()
