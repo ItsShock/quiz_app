@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15a94ff69763a734d9d7e706d98ad844, type: 3}
+  m_Name: 3
+  m_EditorClassIdentifier: 
+  typZad: 0
+  TrescZad: "Max w pracy mia\u0142 wypisa\u0107 numery na tabliczki dom\xF3w z ulicy
+    Kwiatowej. Ma przygotowa\u0107 numery od 1 do 100. Ile razy b\u0119dzie wypisywa\u0142
+    cyfr\u0119 8?"
+  PrawidlowaOdp: 20
+  ZlaOdp1: 21
+  ZlaOdp2: 19
+  ZlaOdp3: 18
