@@ -11,7 +11,7 @@ public class Lekcja : MonoBehaviour
     [SerializeField] Text txtNrLekcji;
     [SerializeField] Text txtPkt;
     [SerializeField] Button[] przyciskiOdp;
-    int numerZad = 0;
+    int numerZad;
     int numerLekcji = 0;
     [SerializeField] Zadanie[] zadaniaLekcja0;
     [SerializeField] Zadanie[] zadaniaLekcja1;
@@ -27,11 +27,21 @@ public class Lekcja : MonoBehaviour
         numerLekcji = gm.PobierzNrLekcji();
         UstawLekcje(numerLekcji - 1);
         pktskrytp = FindObjectOfType<Punkty>();
+
+        if(numerLekcji == gm.PobierzIloscUkonczonychLekcji())
+        {
+            numerZad = gm.PobierzNrZadania();
+        }
+        else
+        {
+            numerZad = 0;
+        }
+
         TworzNoweZad();
         WyswietlNrZad();
         WyswietlIloscPkt();
-        print(numerLekcji);
-        print(gm.PobierzIloscUkonczonychLekcji());
+        //print(numerLekcji);
+        //print(gm.PobierzIloscUkonczonychLekcji());
     }
 
     void UstawLekcje(int nrLekcji)
@@ -159,12 +169,24 @@ public class Lekcja : MonoBehaviour
         if(numerZad < zadaniaAktualnejLekcji.Length -1)
         {
             numerZad ++;
+            gm.ZwiekszNrZad();
             TworzNoweZad();
         }
         else
         {
-            AktywujPanelUkonczeniaLekcji(true);
+            ZakonczLekcje();
         }
+    }
+
+    void ZakonczLekcje()
+    {
+        AktywujPanelUkonczeniaLekcji(true);
+        if(numerLekcji == gm.PobierzIloscUkonczonychLekcji())
+        {
+            gm.DodajUkonczonaLekcje();
+            gm.ResteujNrZadania();
+        }
+
     }
 
     public void ZamknijPanelUkonczeniaLekcji()
@@ -176,10 +198,6 @@ public class Lekcja : MonoBehaviour
     void AktywujPanelUkonczeniaLekcji(bool odkryj)
     {
         panelUkonczeniaLekcji.SetActive(odkryj);
-        if(numerLekcji == gm.PobierzIloscUkonczonychLekcji())
-        {
-            gm.DodajUkonczonaLekcje();
-        }
         
     }
     void WyswietlNrZad()

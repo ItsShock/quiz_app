@@ -25,6 +25,7 @@ public class Menu : MonoBehaviour
     public void ResteujPlayerprefs()
     {
         FindObjectOfType<GameManger>().ResteujIloscUkonczonychLekcji();
+        FindObjectOfType<GameManger>().ResteujNrZadania();
         FindObjectOfType<Punkty>().ResetujIloscPkt();
     }
 }

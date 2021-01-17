@@ -7,6 +7,7 @@ public class GameManger : MonoBehaviour
 {
     int numerLekcji;
     int iloscUkonczonychLekcji;
+    int nrZadania;
 
     private void Awake()
     {
@@ -26,6 +27,16 @@ public class GameManger : MonoBehaviour
             iloscUkonczonychLekcji = PlayerPrefs.GetInt("SaveUkonczonychlekcji");
         }
 
+        if(!PlayerPrefs.HasKey("SaveNumerZadania"))
+        {
+            PlayerPrefs.SetInt("SaveNumerZadania", 0);
+            nrZadania = 0;
+        }
+        else
+        {
+            nrZadania = PlayerPrefs.GetInt("SaveNumerZadania");
+        }
+
     }
 
     public int PobierzIloscUkonczonychLekcji()
@@ -38,6 +49,18 @@ public class GameManger : MonoBehaviour
         iloscUkonczonychLekcji = PlayerPrefs.GetInt("SaveUkonczonychlekcji");
         iloscUkonczonychLekcji ++;
         PlayerPrefs.SetInt("SaveUkonczonychlekcji", iloscUkonczonychLekcji);
+    }
+
+    public int PobierzNrZadania()
+    {
+        return PlayerPrefs.GetInt("SaveNumerZadania");
+    }
+
+    public void ZwiekszNrZad()
+    {
+        nrZadania = PlayerPrefs.GetInt("SaveNumerZadania");
+        nrZadania++;
+        PlayerPrefs.SetInt("SaveNumerZadania", nrZadania);
     }
 
     public int PobierzNrLekcji()
@@ -58,5 +81,12 @@ public class GameManger : MonoBehaviour
     public void ResteujIloscUkonczonychLekcji()
     {
         PlayerPrefs.SetInt("SaveUkonczonychlekcji", 0);
+
+    }
+
+     public void ResteujNrZadania()
+    {
+        PlayerPrefs.SetInt("SaveNumerZadania", 0);
+        
     }
 }
