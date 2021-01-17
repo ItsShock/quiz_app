@@ -27,6 +27,6 @@ public class Punkty : MonoBehaviour
 
     void WyswietlIloscPkt()
     {
-        txtPkt.text = "Ilość Punktów: " + iloscPkt;
+        txtPkt.text = "Punkty: " + iloscPkt;
     }
 }

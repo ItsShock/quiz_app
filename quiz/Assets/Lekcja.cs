@@ -8,22 +8,52 @@ public class Lekcja : MonoBehaviour
     
     [SerializeField] Text txtTrescZad;
     [SerializeField] Text txtNrZad;
+    [SerializeField] Text txtNrLekcji;
     [SerializeField] Button[] przyciskiOdp;
     int numerZad = 0;
-    [SerializeField] Zadanie[] zadania;
+    int numerLekcji = 0;
+    [SerializeField] Zadanie[] zadaniaLekcja0;
+    [SerializeField] Zadanie[] zadaniaLekcja1;
+    [SerializeField] Zadanie[] zadaniaLekcja2;
+    Zadanie[] zadaniaAktualnejLekcji;
     Punkty pktskrytp;
     int ileJestOdpWZadaniu;
     string odpUzytkownika;
+    GameManger gm;
     void Start()
     {
+        gm = FindObjectOfType<GameManger>();
+        numerLekcji = gm.PobierzNrLekcji();
+        UstawLekcje(numerLekcji - 1);
         pktskrytp = FindObjectOfType<Punkty>();
         TworzNoweZad();
         WyswietlNrZad();
     }
 
+    void UstawLekcje(int nrLekcji)
+    {
+        numerLekcji = nrLekcji;
+        txtNrLekcji.text = "Lekcja: " + nrLekcji;
+        switch(nrLekcji)
+        {
+            case 0:
+                zadaniaAktualnejLekcji = zadaniaLekcja0;
+                break;
+            case 1: 
+                zadaniaAktualnejLekcji = zadaniaLekcja1;
+                break;
+            case 2: 
+                zadaniaAktualnejLekcji = zadaniaLekcja2;
+                break;
+            default:
+                zadaniaAktualnejLekcji = zadaniaLekcja0;
+                break;
+        }
+    }
+
     void PrzypiszElementyDoZad()
     {
-        txtTrescZad.text = zadania[numerZad].PobierzTrescZad();
+        txtTrescZad.text = zadaniaAktualnejLekcji[numerZad].PobierzTrescZad().Replace("__",odpUzytkownika);
     }
 
     void OdkryjPrzyciskiOdp()
@@ -35,11 +65,12 @@ public class Lekcja : MonoBehaviour
     }
     void TworzNoweZad()
     {
+        odpUzytkownika = "__";
         UkryjWszystkiePrzyciskiOdp();
         SprawdzIleJestOdpWZad();
         OdkryjPrzyciskiOdp();
-        PrzypiszElementyDoZad();
         PrzypiszWartosciDoPrzyciskow();
+        PrzypiszElementyDoZad();
         WyswietlNrZad();
     }
 
@@ -48,7 +79,7 @@ public class Lekcja : MonoBehaviour
         ileJestOdpWZadaniu = 0;
         for (int i = 0; i < 3; i++)
         {
-            if(zadania[numerZad].PobierzZlaOdp(i + 1) != "")
+            if(zadaniaAktualnejLekcji[numerZad].PobierzZlaOdp(i + 1) != "")
             {
                 ileJestOdpWZadaniu ++;
             }
@@ -64,11 +95,11 @@ public class Lekcja : MonoBehaviour
         {
             if(i == 0)
             {
-                listaOdp.Add(zadania[numerZad].PobierzPrawidlowaOdp());
+                listaOdp.Add(zadaniaAktualnejLekcji[numerZad].PobierzPrawidlowaOdp());
             }
             else
             {
-                listaOdp.Add(zadania[numerZad].PobierzZlaOdp(i));
+                listaOdp.Add(zadaniaAktualnejLekcji[numerZad].PobierzZlaOdp(i));
             }
         }
 
@@ -93,12 +124,12 @@ public class Lekcja : MonoBehaviour
     public void PobierzOdpUzytkownika(string odp) 
     {
         odpUzytkownika = odp;
-
+        PrzypiszElementyDoZad();
     }
 
     public void SprawdzOdp()
     {
-        if(odpUzytkownika == zadania[numerZad].PobierzPrawidlowaOdp())
+        if(odpUzytkownika == zadaniaAktualnejLekcji[numerZad].PobierzPrawidlowaOdp())
         {
             print("Odp poprawna");
             pktskrytp.DodajPkt(1);
@@ -113,7 +144,7 @@ public class Lekcja : MonoBehaviour
 
     void PrzelaczNastepneZad()
     {
-        if(numerZad < zadania.Length -1)
+        if(numerZad < zadaniaAktualnejLekcji.Length -1)
         {
             numerZad ++;
             TworzNoweZad();
@@ -127,7 +158,12 @@ public class Lekcja : MonoBehaviour
 
     void WyswietlNrZad()
     {
-        txtNrZad.text = "Numer zadania: " + numerZad;
+        txtNrZad.text = "Zadanie: " + numerZad;
+    }
+
+    public void PrzejdDoMenu()
+    {
+        gm.PrzelaczScene(0);
     }
 
     void Update()

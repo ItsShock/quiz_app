@@ -15,8 +15,8 @@ MonoBehaviour:
   typZad: 0
   TrescZad: "Max w pracy mia\u0142 wypisa\u0107 numery na tabliczki dom\xF3w z ulicy
     Kwiatowej. Ma przygotowa\u0107 numery od 1 do 100. Ile razy b\u0119dzie wypisywa\u0142
-    cyfr\u0119 8?"
+    cyfr\u0119 8?\n\n__ razy."
   PrawidlowaOdp: 20
   ZlaOdp1: 21
   ZlaOdp2: 19
-  ZlaOdp3: 18
+  ZlaOdp3: 1

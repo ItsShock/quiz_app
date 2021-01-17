@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   typZad: 0
   TrescZad: "Kiedy tata Kuby mia\u0142 31 lat, Kuba mia\u0142 8 lat. Teraz wiek taty
-    jest dok\u0142adnie dwa razy taki jak wiek Kuby. Ile lat ma obecnie Kuba?"
+    jest dok\u0142adnie dwa razy taki jak wiek Kuby. Ile lat ma obecnie Kuba?\n\nKuba
+    ma obecnie __."
   PrawidlowaOdp: 23 lata
   ZlaOdp1: 16 lat
   ZlaOdp2: 31 lat
-  ZlaOdp3: 21 lat
+  ZlaOdp3: 
