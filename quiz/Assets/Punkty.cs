@@ -31,4 +31,9 @@ public class Punkty : MonoBehaviour
     {
         return PlayerPrefs.GetInt("SavePunkty");
     }
+
+    public void ResetujIloscPkt()
+    {
+        PlayerPrefs.SetInt("SavePunkty", 0);
+    }
 }

@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameManger : MonoBehaviour
 {
     int numerLekcji;
+    int iloscUkonczonychLekcji;
 
     private void Awake()
     {
@@ -14,6 +15,29 @@ public class GameManger : MonoBehaviour
             Destroy(gameObject);
         }
         DontDestroyOnLoad(gameObject);
+
+        if(!PlayerPrefs.HasKey("SaveUkonczonychlekcji"))
+        {
+            PlayerPrefs.SetInt("SaveUkonczonychlekcji", 0);
+            iloscUkonczonychLekcji = 0;
+        }
+        else
+        {
+            iloscUkonczonychLekcji = PlayerPrefs.GetInt("SaveUkonczonychlekcji");
+        }
+
+    }
+
+    public int PobierzIloscUkonczonychLekcji()
+    {
+        return PlayerPrefs.GetInt("SaveUkonczonychlekcji");
+    }
+
+    public void DodajUkonczonaLekcje()
+    {
+        iloscUkonczonychLekcji = PlayerPrefs.GetInt("SaveUkonczonychlekcji");
+        iloscUkonczonychLekcji ++;
+        PlayerPrefs.SetInt("SaveUkonczonychlekcji", iloscUkonczonychLekcji);
     }
 
     public int PobierzNrLekcji()
@@ -29,5 +53,10 @@ public class GameManger : MonoBehaviour
     public void PrzelaczScene(int sceneBuildIndex)
     {
         SceneManager.LoadScene(sceneBuildIndex);
+    }
+
+    public void ResteujIloscUkonczonychLekcji()
+    {
+        PlayerPrefs.SetInt("SaveUkonczonychlekcji", 0);
     }
 }

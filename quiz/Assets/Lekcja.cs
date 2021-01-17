@@ -30,6 +30,8 @@ public class Lekcja : MonoBehaviour
         TworzNoweZad();
         WyswietlNrZad();
         WyswietlIloscPkt();
+        print(numerLekcji);
+        print(gm.PobierzIloscUkonczonychLekcji());
     }
 
     void UstawLekcje(int nrLekcji)
@@ -138,7 +140,10 @@ public class Lekcja : MonoBehaviour
         if(odpUzytkownika == zadaniaAktualnejLekcji[numerZad].PobierzPrawidlowaOdp())
         {
             print("Odp poprawna");
-            pktskrytp.DodajPkt(1);
+            if(numerLekcji == gm.PobierzIloscUkonczonychLekcji())
+            {
+                pktskrytp.DodajPkt(1);
+            }
             WyswietlIloscPkt();
             PrzelaczNastepneZad();
 
@@ -171,6 +176,11 @@ public class Lekcja : MonoBehaviour
     void AktywujPanelUkonczeniaLekcji(bool odkryj)
     {
         panelUkonczeniaLekcji.SetActive(odkryj);
+        if(numerLekcji == gm.PobierzIloscUkonczonychLekcji())
+        {
+            gm.DodajUkonczonaLekcje();
+        }
+        
     }
     void WyswietlNrZad()
     {
