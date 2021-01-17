@@ -5,28 +5,30 @@ using UnityEngine.UI;
 
 public class Punkty : MonoBehaviour
 {
-    [SerializeField] Text txtPkt;
-    int iloscPkt;
-    void Start()
+    void Awake()
     {
-        iloscPkt = 0;
-        WyswietlIloscPkt();
+        if(!PlayerPrefs.HasKey("SavePunkty"))
+        {
+            PlayerPrefs.SetInt("SavePunkty",0);
+            iloscPkt = 0;
+        }
+        else
+        {
+            iloscPkt = PlayerPrefs.GetInt("SavePunkty");
+        }
     }
-
     
-    void Update()
-    {
-        
-    }
-
+    int iloscPkt;
+  
     public void DodajPkt(int punkty)
     {
+        iloscPkt = PlayerPrefs.GetInt("SavePunkty");
         iloscPkt += punkty;
-        WyswietlIloscPkt();
+        PlayerPrefs.SetInt("SavePunkty", iloscPkt);
     }
 
-    void WyswietlIloscPkt()
+    public int PobierzIloscPkt()
     {
-        txtPkt.text = "Punkty: " + iloscPkt;
+        return PlayerPrefs.GetInt("SavePunkty");
     }
 }

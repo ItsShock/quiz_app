@@ -5,10 +5,11 @@ using UnityEngine.UI;
 
 public class Lekcja : MonoBehaviour
 {
-    
+    [SerializeField] GameObject panelUkonczeniaLekcji;
     [SerializeField] Text txtTrescZad;
     [SerializeField] Text txtNrZad;
     [SerializeField] Text txtNrLekcji;
+    [SerializeField] Text txtPkt;
     [SerializeField] Button[] przyciskiOdp;
     int numerZad = 0;
     int numerLekcji = 0;
@@ -28,6 +29,7 @@ public class Lekcja : MonoBehaviour
         pktskrytp = FindObjectOfType<Punkty>();
         TworzNoweZad();
         WyswietlNrZad();
+        WyswietlIloscPkt();
     }
 
     void UstawLekcje(int nrLekcji)
@@ -49,6 +51,10 @@ public class Lekcja : MonoBehaviour
                 zadaniaAktualnejLekcji = zadaniaLekcja0;
                 break;
         }
+    }
+        void WyswietlIloscPkt()
+    {
+        txtPkt.text = "Punkty: " + pktskrytp.PobierzIloscPkt();
     }
 
     void PrzypiszElementyDoZad()
@@ -133,6 +139,7 @@ public class Lekcja : MonoBehaviour
         {
             print("Odp poprawna");
             pktskrytp.DodajPkt(1);
+            WyswietlIloscPkt();
             PrzelaczNastepneZad();
 
         }
@@ -151,11 +158,20 @@ public class Lekcja : MonoBehaviour
         }
         else
         {
-            numerZad = 0;
-            TworzNoweZad();
+            AktywujPanelUkonczeniaLekcji(true);
         }
     }
 
+    public void ZamknijPanelUkonczeniaLekcji()
+    {
+        AktywujPanelUkonczeniaLekcji(false);
+        PrzejdDoMenu();
+    }
+
+    void AktywujPanelUkonczeniaLekcji(bool odkryj)
+    {
+        panelUkonczeniaLekcji.SetActive(odkryj);
+    }
     void WyswietlNrZad()
     {
         txtNrZad.text = "Zadanie: " + numerZad;
