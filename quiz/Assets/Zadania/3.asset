@@ -10,12 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 15a94ff69763a734d9d7e706d98ad844, type: 3}
-  m_Name: 1
+  m_Name: 3
   m_EditorClassIdentifier: 
   typZad: 0
-  TrescZad: "Ceg\u0142a wa\u017Cy kilo i p\xF3\u0142 ceg\u0142y. Ile wa\u017Cy ceg\u0142a?\n\nCeg\u0142a
-    wa\u017Cy __ kg."
-  PrawidlowaOdp: 2
-  ZlaOdp1: 1.5
-  ZlaOdp2: 1
-  ZlaOdp3: 3
+  TrescZad: "Max w pracy mia\u0142 wypisa\u0107 numery na tabliczki dom\xF3w z ulicy
+    Kwiatowej. Ma przygotowa\u0107 numery od 1 do 100. Ile razy b\u0119dzie wypisywa\u0142
+    cyfr\u0119 8?\n\n__ razy."
+  PrawidlowaOdp: 20
+  ZlaOdp1: 21
+  ZlaOdp2: 19
+  ZlaOdp3: 1
+  zdjeciedoZadania: {fileID: 0}

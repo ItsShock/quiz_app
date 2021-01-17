@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15a94ff69763a734d9d7e706d98ad844, type: 3}
+  m_Name: 10
+  m_EditorClassIdentifier: 
+  typZad: 0
+  TrescZad: "Masz do dyspozycji osiem \xF3semek i wszystkie dost\u0119pne dzia\u0142ania
+    matematyczne. Znajd\u017A takie r\xF3wnanie, kt\xF3rego wynikiem b\u0119dzie
+    liczba 1000.\n\n__ ."
+  PrawidlowaOdp: 888 + 88 + 8 + 8 + 8
+  ZlaOdp1: 
+  ZlaOdp2: 
+  ZlaOdp3: 
+  zdjeciedoZadania: {fileID: 0}

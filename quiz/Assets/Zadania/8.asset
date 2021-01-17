@@ -10,13 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 15a94ff69763a734d9d7e706d98ad844, type: 3}
-  m_Name: 3
+  m_Name: 8
   m_EditorClassIdentifier: 
   typZad: 0
-  TrescZad: "Max w pracy mia\u0142 wypisa\u0107 numery na tabliczki dom\xF3w z ulicy
-    Kwiatowej. Ma przygotowa\u0107 numery od 1 do 100. Ile razy b\u0119dzie wypisywa\u0142
-    cyfr\u0119 8?\n\n__ razy."
-  PrawidlowaOdp: 20
-  ZlaOdp1: 21
-  ZlaOdp2: 19
-  ZlaOdp3: 1
+  TrescZad: "Nieraz w bajkach widzia\u0142em\r i zwiedza\u0142em go w snach\r, ale
+    prawd\u0119 Ci powiem:\r\ncz\u0119\u015Bciej widz\u0119 go w drzwiach.\n\n__
+    ."
+  PrawidlowaOdp: Zamek
+  ZlaOdp1: "Kr\xF3lewicza"
+  ZlaOdp2: "Jednoro\u017Cca"
+  ZlaOdp3: Komornika
+  zdjeciedoZadania: {fileID: 0}

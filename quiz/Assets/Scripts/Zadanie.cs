@@ -12,6 +12,12 @@ public class Zadanie : ScriptableObject
     [SerializeField] string ZlaOdp1;
     [SerializeField] string ZlaOdp2;
     [SerializeField] string ZlaOdp3;
+    [SerializeField] Sprite zdjeciedoZadania;
+
+    public Sprite PobierzZdjDoZad()
+    {
+        return zdjeciedoZadania;
+    }
 
     public string PobierzTrescZad()
     {

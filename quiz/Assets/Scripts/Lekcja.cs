@@ -16,14 +16,18 @@ public class Lekcja : MonoBehaviour
     [SerializeField] Zadanie[] zadaniaLekcja0;
     [SerializeField] Zadanie[] zadaniaLekcja1;
     [SerializeField] Zadanie[] zadaniaLekcja2;
+    [SerializeField] Image imgZdjecieDoZad;
+
     Zadanie[] zadaniaAktualnejLekcji;
     Punkty pktskrytp;
+    GameManger gm;
+    SoundManager sm;
     int ileJestOdpWZadaniu;
     string odpUzytkownika;
-    GameManger gm;
     void Start()
     {
         gm = FindObjectOfType<GameManger>();
+        sm = FindObjectOfType<SoundManager>();
         numerLekcji = gm.PobierzNrLekcji();
         UstawLekcje(numerLekcji - 1);
         pktskrytp = FindObjectOfType<Punkty>();
@@ -47,7 +51,7 @@ public class Lekcja : MonoBehaviour
     void UstawLekcje(int nrLekcji)
     {
         numerLekcji = nrLekcji;
-        txtNrLekcji.text = "Lekcja: " + nrLekcji;
+        txtNrLekcji.text = "Lekcja: " + nrLekcji + 1;
         switch(nrLekcji)
         {
             case 0:
@@ -90,6 +94,15 @@ public class Lekcja : MonoBehaviour
         PrzypiszWartosciDoPrzyciskow();
         PrzypiszElementyDoZad();
         WyswietlNrZad();
+        PrzypiszZdjDoZadania();
+    }
+
+    void PrzypiszZdjDoZadania()
+    {
+        if(zadaniaAktualnejLekcji[numerZad].PobierzZdjDoZad() != null)
+        {
+            imgZdjecieDoZad.sprite = zadaniaAktualnejLekcji[numerZad].PobierzZdjDoZad();
+        }
     }
 
     void SprawdzIleJestOdpWZad()
@@ -154,8 +167,10 @@ public class Lekcja : MonoBehaviour
             {
                 pktskrytp.DodajPkt(1);
             }
+            sm.OdtworzDzwiek(0);
             WyswietlIloscPkt();
             PrzelaczNastepneZad();
+
 
         }
         else
@@ -186,6 +201,7 @@ public class Lekcja : MonoBehaviour
             gm.DodajUkonczonaLekcje();
             gm.ResteujNrZadania();
         }
+        sm.OdtworzDzwiek(1);
 
     }
 
@@ -202,7 +218,7 @@ public class Lekcja : MonoBehaviour
     }
     void WyswietlNrZad()
     {
-        txtNrZad.text = "Zadanie: " + numerZad;
+        txtNrZad.text = "Zadanie: " + numerZad + 1;
     }
 
     public void PrzejdDoMenu()
