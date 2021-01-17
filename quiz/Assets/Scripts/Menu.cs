@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
     [SerializeField] GameObject btnPrefab;
     [SerializeField] Transform prefabRodzic;
+    [SerializeField] GameObject PanelUstawien;
     int iloscWszystkichDostepnychLekcji = 3;
     void Start()
     {
@@ -27,5 +29,17 @@ public class Menu : MonoBehaviour
         FindObjectOfType<GameManger>().ResteujIloscUkonczonychLekcji();
         FindObjectOfType<GameManger>().ResteujNrZadania();
         FindObjectOfType<Punkty>().ResetujIloscPkt();
+        SceneManager.LoadScene(0);
+    }
+
+    public void OdkryjPanelUstawien(bool odkryj)
+    {
+        PanelUstawien.SetActive(odkryj);
+    }
+
+    public void ZamknijProgram()
+    {
+        Application.Quit();
     }
 }
+
