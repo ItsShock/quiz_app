@@ -29,6 +29,7 @@ public class Menu : MonoBehaviour
         FindObjectOfType<GameManger>().ResteujIloscUkonczonychLekcji();
         FindObjectOfType<GameManger>().ResteujNrZadania();
         FindObjectOfType<Punkty>().ResetujIloscPkt();
+        FindObjectOfType<Punkty>().ResetujIloscPktwAktualnejLekcji();
         SceneManager.LoadScene(0);
     }
 

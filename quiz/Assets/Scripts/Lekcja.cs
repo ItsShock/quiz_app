@@ -10,6 +10,7 @@ public class Lekcja : MonoBehaviour
     [SerializeField] Text txtNrZad;
     [SerializeField] Text txtNrLekcji;
     [SerializeField] Text txtPkt;
+    [SerializeField] Text txtPodsumowanieLekcji;
     [SerializeField] Button[] przyciskiOdp;
     int numerZad;
     int numerLekcji = 0;
@@ -66,6 +67,12 @@ public class Lekcja : MonoBehaviour
      void OdkryjPanelZOdp(bool odkryj)
     {
         panelZPolemOdp.SetActive(odkryj);
+    }
+
+    void DodajPodsumowanie()
+    {
+        string podsumowanie = "Uzyskano " + pktskrytp.PobierzIloscPktAktualnejLekcji() + " z " + zadaniaAktualnejLekcji.Length + " możliwych punktów";
+        txtPodsumowanieLekcji.text = podsumowanie;
     }
 
     void UstawLekcje(int nrLekcji)
@@ -210,6 +217,7 @@ public class Lekcja : MonoBehaviour
             print("Odp niepoprawna");
             czyTojest1Odp = false;
         }
+        panelZPolemOdp.GetComponentInChildren<InputField>().text = "";
     }
 
     void PrzelaczNastepneZad()
@@ -246,8 +254,9 @@ public class Lekcja : MonoBehaviour
 
     void AktywujPanelUkonczeniaLekcji(bool odkryj)
     {
+        DodajPodsumowanie();
         panelUkonczeniaLekcji.SetActive(odkryj);
-        
+        pktskrytp.ResetujIloscPktwAktualnejLekcji();
     }
     void WyswietlNrZad()
     {
