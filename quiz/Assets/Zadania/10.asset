@@ -13,11 +13,10 @@ MonoBehaviour:
   m_Name: 10
   m_EditorClassIdentifier: 
   typZad: 0
-  TrescZad: "Masz do dyspozycji osiem \xF3semek i wszystkie dost\u0119pne dzia\u0142ania
-    matematyczne. Znajd\u017A takie r\xF3wnanie, kt\xF3rego wynikiem b\u0119dzie
-    liczba 1000.\n\n__ ."
-  PrawidlowaOdp: 888 + 88 + 8 + 8 + 8
-  ZlaOdp1: 
-  ZlaOdp2: 
-  ZlaOdp3: 
+  TrescZad: "Cho\u0107 znios\u0142a j\u0105 bura kurka,\r wygl\u0105da tak, jak laurka.\r
+    Tkwi w wielkanocnym koszyku,\r \u015Bwi\u0119conce dodaj\u0105c szyku.\n__."
+  PrawidlowaOdp: pisanka
+  ZlaOdp1: "kie\u0142basa"
+  ZlaOdp2: "zaj\u0105c"
+  ZlaOdp3: "s\xF3l"
   zdjeciedoZadania: {fileID: 0}

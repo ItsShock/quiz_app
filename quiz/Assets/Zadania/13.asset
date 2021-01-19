@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15a94ff69763a734d9d7e706d98ad844, type: 3}
+  m_Name: 13
+  m_EditorClassIdentifier: 
+  typZad: 0
+  TrescZad: "Na wystawie ps\xF3w spotkali si\u0119 w\u0142a\u015Bciciele wraz ze
+    swoimi pupilami. Wiedz\u0105c, \u017Ce \u0142\u0105cznie mieli 62 g\u0142owy
+    i 206 n\xF3g, to ilu by\u0142o w\u0142a\u015Bcicieli?\r\n\n__."
+  PrawidlowaOdp: "21 w\u0142a\u015Bcicieli i 41 ps\xF3w"
+  ZlaOdp1: 
+  ZlaOdp2: 
+  ZlaOdp3: 
+  zdjeciedoZadania: {fileID: 0}

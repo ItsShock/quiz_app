@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: 9
   m_EditorClassIdentifier: 
   typZad: 0
-  TrescZad: "W dzie\u0144 ich nie ujrzysz, chocia\u017C s\u0105 nad nami.\r Mo\u017Cna
-    je zobaczy\u0107 noc\u0105 i wieczorami.\n\n__ ."
-  PrawidlowaOdp: Gwiazdy
-  ZlaOdp1: "Ksi\u0119\u017Cyc"
-  ZlaOdp2: "S\u0142o\u0144ce"
-  ZlaOdp3: Ptaki
+  TrescZad: "W nim rosn\u0105 drzewa,\r w nim ptaki \u015Bpiewaj\u0105.\r W nim ma\u0142e
+    i du\u017Ce\r zwierz\u0119ta mieszkaj\u0105.\n\n__."
+  PrawidlowaOdp: las
+  ZlaOdp1: 
+  ZlaOdp2: 
+  ZlaOdp3: 
   zdjeciedoZadania: {fileID: 0}

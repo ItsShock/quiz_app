@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: 12
   m_EditorClassIdentifier: 
   typZad: 0
-  TrescZad: "Je\u015Bli dwa to towarzystwo, a trzy to t\u0142um, to ile to cztery
-    i pi\u0119\u0107?\n\n__ ."
-  PrawidlowaOdp: 9
+  TrescZad: "Co to jest? Nie gdacze na podw\xF3rkach\r ro\u015Bnie w lesie \u017C\xF3\u0142ta.\n__."
+  PrawidlowaOdp: kurka
   ZlaOdp1: 
   ZlaOdp2: 
   ZlaOdp3: 

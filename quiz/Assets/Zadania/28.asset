@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15a94ff69763a734d9d7e706d98ad844, type: 3}
+  m_Name: 28
+  m_EditorClassIdentifier: 
+  typZad: 0
+  TrescZad: "Co trzeba umie\u015Bci\u0107 pomi\u0119dzy \xF3semk\u0105 i dziewi\u0105tk\u0105,
+    \u017Ceby uzyska\u0107 liczb\u0119, kt\xF3ra jest wi\u0119ksza ni\u017C 8 i mniejsza
+    ni\u017C 9?\n\n__."
+  PrawidlowaOdp: przecinek
+  ZlaOdp1: 
+  ZlaOdp2: 
+  ZlaOdp3: 
+  zdjeciedoZadania: {fileID: 0}

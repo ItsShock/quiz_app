@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: 5
   m_EditorClassIdentifier: 
   typZad: 0
-  TrescZad: "Ten \u015Bniegowy panicz,\r garnek ma na g\u0142owie.\r\nW miejscu nosa
-    marchew,\r ulepi\u0142 go cz\u0142owiek!\n\n__ ."
-  PrawidlowaOdp: "Ba\u0142wan"
-  ZlaOdp1: "Cz\u0142owiek"
-  ZlaOdp2: Ciasto
-  ZlaOdp3: "Snie\u017Cka"
+  TrescZad: "Co to za z\u0142ota \u015Bwietlana kula,\r kt\xF3ra swym ciep\u0142em
+    Ziemi\u0119 otula?\n\n__."
+  PrawidlowaOdp: "s\u0142o\u0144ce"
+  ZlaOdp1: 
+  ZlaOdp2: 
+  ZlaOdp3: 
   zdjeciedoZadania: {fileID: 0}

@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15a94ff69763a734d9d7e706d98ad844, type: 3}
+  m_Name: 27
+  m_EditorClassIdentifier: 
+  typZad: 0
+  TrescZad: "Na d\u0142ugiej \u0142awce usiad\u0142o osiem os\xF3b. Co minut\u0119
+    zmieniaj\u0105 one swoje miejsca. Ile dni potrzeba, zanim wszyscy zamieni\u0105
+    si\u0119 mi\u0119dzy sob\u0105 wszystkimi miejscami?\n\n__."
+  PrawidlowaOdp: 28
+  ZlaOdp1: 
+  ZlaOdp2: 
+  ZlaOdp3: 
+  zdjeciedoZadania: {fileID: 0}

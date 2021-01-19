@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,24 +11,29 @@ public class Lekcja : MonoBehaviour
     [SerializeField] Text txtNrLekcji;
     [SerializeField] Text txtPkt;
     [SerializeField] Text txtPodsumowanieLekcji;
+    [SerializeField] Text txtPodpowiedz;
     [SerializeField] Button[] przyciskiOdp;
-    int numerZad;
-    int numerLekcji = 0;
     [SerializeField] Zadanie[] zadaniaLekcja0;
     [SerializeField] Zadanie[] zadaniaLekcja1;
     [SerializeField] Zadanie[] zadaniaLekcja2;
+    [SerializeField] Zadanie[] zadaniaLekcja3;
+    [SerializeField] Zadanie[] zadaniaLekcja4;
     [SerializeField] Image imgZdjecieDoZad;
     [SerializeField] Slider sliderPostepu;
     [SerializeField] GameObject panelZPrzyciskami;
     [SerializeField] GameObject panelZPolemOdp;
+    [SerializeField] GameObject panelPodpowiedzi;
 
     Zadanie[] zadaniaAktualnejLekcji;
     Punkty pktskrytp;
     GameManger gm;
     SoundManager sm;
+    int numerZad;
+    int numerLekcji = 0;
     int ileJestOdpWZadaniu;
     string odpUzytkownika;
     bool czyTojest1Odp;
+    bool czyJestesmyWTrybieWpisywaniaOdp;
     void Start()
     {
         OdkryjPanelZOdp(false);
@@ -64,9 +69,23 @@ public class Lekcja : MonoBehaviour
         panelZPrzyciskami.SetActive(odkryj);
     }
 
-     void OdkryjPanelZOdp(bool odkryj)
+    void OdkryjPanelZOdp(bool odkryj)
     {
         panelZPolemOdp.SetActive(odkryj);
+    }
+
+    public void OdkryjPanelPodpowiedzi(bool odkryj)
+    {
+        panelPodpowiedzi.SetActive(odkryj);
+        if(odkryj == true)
+        {
+            czyTojest1Odp = false;
+            txtPodpowiedz.text = zadaniaAktualnejLekcji[numerZad].PobierzPrawidlowaOdp();
+        }
+        else
+        {
+            txtPodpowiedz.text = "";
+        }
     }
 
     void DodajPodsumowanie()
@@ -78,7 +97,7 @@ public class Lekcja : MonoBehaviour
     void UstawLekcje(int nrLekcji)
     {
         numerLekcji = nrLekcji;
-        txtNrLekcji.text = "Lekcja: " + nrLekcji + 1;
+        txtNrLekcji.text = "Lekcja: " + nrLekcji;
         switch(nrLekcji)
         {
             case 0:
@@ -90,6 +109,12 @@ public class Lekcja : MonoBehaviour
             case 2: 
                 zadaniaAktualnejLekcji = zadaniaLekcja2;
                 break;
+            case 3: 
+                zadaniaAktualnejLekcji = zadaniaLekcja3;
+                break;
+            case 4: 
+                zadaniaAktualnejLekcji = zadaniaLekcja4;
+                break;
             default:
                 zadaniaAktualnejLekcji = zadaniaLekcja0;
                 break;
@@ -99,49 +124,6 @@ public class Lekcja : MonoBehaviour
     {
         txtPkt.text = "Punkty: " + pktskrytp.PobierzIloscPkt();
     }
-
-    void PrzypiszElementyDoZad()
-    {
-        txtTrescZad.text = zadaniaAktualnejLekcji[numerZad].PobierzTrescZad().Replace("__",odpUzytkownika);
-    }
-
-    void OdkryjPrzyciskiOdp()
-    {
-    for (int i = 0; i < ileJestOdpWZadaniu; i++)
-        {
-            przyciskiOdp[i].gameObject.SetActive(true);
-        }
-    }
-    void TworzNoweZad()
-    {
-        odpUzytkownika = "__";
-        UkryjWszystkiePrzyciskiOdp();
-        SprawdzIleJestOdpWZad();
-        if(ileJestOdpWZadaniu == 1)
-        {
-            OdkryjPanelZOdp(true);
-            OdkryjPanelZPrzyciskami(false);
-        }
-        else
-        {
-            OdkryjPanelZPrzyciskami(true);
-            OdkryjPanelZOdp(false);
-            OdkryjPrzyciskiOdp();
-            PrzypiszWartosciDoPrzyciskow();
-        }
-        PrzypiszElementyDoZad();
-        WyswietlNrZad();
-        PrzypiszZdjDoZadania();
-    }
-
-    void PrzypiszZdjDoZadania()
-    {
-        if(zadaniaAktualnejLekcji[numerZad].PobierzZdjDoZad() != null)
-        {
-            imgZdjecieDoZad.sprite = zadaniaAktualnejLekcji[numerZad].PobierzZdjDoZad();
-        }
-    }
-
     void SprawdzIleJestOdpWZad()
     {
         ileJestOdpWZadaniu = 0;
@@ -153,34 +135,8 @@ public class Lekcja : MonoBehaviour
             }
         }
         ileJestOdpWZadaniu ++;
-        print("ilosc odpowiedzi w zadaniu: " + ileJestOdpWZadaniu);
+        //print("ilosc odpowiedzi w zadaniu: " + ileJestOdpWZadaniu);
     }
-
-    void PrzypiszWartosciDoPrzyciskow()
-    {
-        List<string> listaOdp = new List<string>();
-        for(int i = 0; i < ileJestOdpWZadaniu; i++)
-        {
-            if(i == 0)
-            {
-                listaOdp.Add(zadaniaAktualnejLekcji[numerZad].PobierzPrawidlowaOdp());
-            }
-            else
-            {
-                listaOdp.Add(zadaniaAktualnejLekcji[numerZad].PobierzZlaOdp(i));
-            }
-        }
-
-        int j = 0;
-        for(int i = listaOdp.Count; i > 0; i--)
-        {
-            int rand = Random.Range(0, listaOdp.Count);
-            przyciskiOdp[j].GetComponentInChildren<Text>().text = listaOdp[rand];
-            listaOdp.RemoveAt(rand);
-            j++;
-        }                
-    }
-
     void UkryjWszystkiePrzyciskiOdp()
     {
         for (int i = 0; i < przyciskiOdp.Length; i++)
@@ -188,7 +144,59 @@ public class Lekcja : MonoBehaviour
             przyciskiOdp[i].gameObject.SetActive(false);
         }
     }
+    void OdkryjPrzyciskiOdp()
+    {
+    for (int i = 0; i < ileJestOdpWZadaniu; i++)
+        {
+            przyciskiOdp[i].gameObject.SetActive(true);
+        }
+    }
+    void TworzNoweZad()
+    {
+        odpUzytkownika = "_";
+        UkryjWszystkiePrzyciskiOdp();
+        SprawdzIleJestOdpWZad();
+        if(ileJestOdpWZadaniu == 1)
+        {
+            OdkryjPanelZOdp(true);
+            OdkryjPanelZPrzyciskami(false);
+            czyJestesmyWTrybieWpisywaniaOdp = true;
+        }
+        else
+        {
+            czyJestesmyWTrybieWpisywaniaOdp = false;
+            OdkryjPanelZPrzyciskami(true);
+            OdkryjPanelZOdp(false);
+            OdkryjPrzyciskiOdp();
+            PrzypiszWartosciDoPrzyciskow();
+        }
+        PrzypiszElementyDoZad();
+        WyswietlNrZad();
+        PrzypiszZdjDoZadania();
+    }
+    void PrzypiszZdjDoZadania()
+    {
+        if(zadaniaAktualnejLekcji[numerZad].PobierzZdjDoZad() != null)
+        {
+            imgZdjecieDoZad.sprite = zadaniaAktualnejLekcji[numerZad].PobierzZdjDoZad();
+        }
+    }
+    void WyswietlNrZad()
+    {
+        txtNrZad.text = "Zadanie: " + (numerZad + 1);
+    }
 
+    public void PrzypiszElementyDoZad()
+    {
+        if(czyJestesmyWTrybieWpisywaniaOdp)
+        {
+            txtTrescZad.text = zadaniaAktualnejLekcji[numerZad].PobierzTrescZad().Replace("__", panelZPolemOdp.GetComponentInChildren<InputField>().text);
+        }
+        else
+        {
+            txtTrescZad.text = zadaniaAktualnejLekcji[numerZad].PobierzTrescZad().Replace("__",odpUzytkownika);
+        }
+    }
     public void PobierzOdpUzytkownika(string odp) 
     {
         odpUzytkownika = odp;
@@ -214,12 +222,11 @@ public class Lekcja : MonoBehaviour
         }
         else
         {
-            print("Odp niepoprawna");
+            //print("Odp niepoprawna");
             czyTojest1Odp = false;
         }
         panelZPolemOdp.GetComponentInChildren<InputField>().text = "";
     }
-
     void PrzelaczNastepneZad()
     {
         czyTojest1Odp = true;
@@ -237,6 +244,7 @@ public class Lekcja : MonoBehaviour
 
     void ZakonczLekcje()
     {
+        
         AktywujPanelUkonczeniaLekcji(true);
         if(numerLekcji == gm.PobierzIloscUkonczonychLekcji())
         {
@@ -246,30 +254,44 @@ public class Lekcja : MonoBehaviour
         sm.OdtworzDzwiek(1);
     }
 
-    public void ZamknijPanelUkonczeniaLekcji()
-    {
-        AktywujPanelUkonczeniaLekcji(false);
-        PrzejdDoMenu();
-    }
-
     void AktywujPanelUkonczeniaLekcji(bool odkryj)
     {
         DodajPodsumowanie();
         panelUkonczeniaLekcji.SetActive(odkryj);
         pktskrytp.ResetujIloscPktwAktualnejLekcji();
     }
-    void WyswietlNrZad()
-    {
-        txtNrZad.text = "Zadanie: " + numerZad + 1;
-    }
 
+    public void ZamknijPanelUkonczeniaLekcji()
+    {
+        AktywujPanelUkonczeniaLekcji(false);
+        PrzejdDoMenu();
+    }
+    void PrzypiszWartosciDoPrzyciskow()
+    {
+        List<string> listaOdp = new List<string>();
+        for(int i = 0; i < ileJestOdpWZadaniu; i++)
+        {
+            if(i == 0)
+            {
+                listaOdp.Add(zadaniaAktualnejLekcji[numerZad].PobierzPrawidlowaOdp());
+            }
+            else
+            {
+                listaOdp.Add(zadaniaAktualnejLekcji[numerZad].PobierzZlaOdp(i));
+            }
+        }
+
+        int j = 0;
+        for(int i = listaOdp.Count; i > 0; i--)
+        {
+            int rand = Random.Range(0, listaOdp.Count);
+            przyciskiOdp[j].GetComponentInChildren<Text>().text = listaOdp[rand];
+            listaOdp.RemoveAt(rand);
+            j++;
+        }                
+    }
     public void PrzejdDoMenu()
     {
         gm.PrzelaczScene(0);
-    }
-
-    void Update()
-    {
-        
     }
 }

@@ -9,7 +9,7 @@ public class Menu : MonoBehaviour
     [SerializeField] GameObject btnPrefab;
     [SerializeField] Transform prefabRodzic;
     [SerializeField] GameObject PanelUstawien;
-    int iloscWszystkichDostepnychLekcji = 3;
+    int iloscWszystkichDostepnychLekcji = 5;
     void Start()
     {
         StworzPrzyciskiWyborulekcji();

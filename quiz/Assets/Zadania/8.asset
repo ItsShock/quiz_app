@@ -13,11 +13,9 @@ MonoBehaviour:
   m_Name: 8
   m_EditorClassIdentifier: 
   typZad: 0
-  TrescZad: "Nieraz w bajkach widzia\u0142em\r i zwiedza\u0142em go w snach\r, ale
-    prawd\u0119 Ci powiem:\r\ncz\u0119\u015Bciej widz\u0119 go w drzwiach.\n\n__
-    ."
-  PrawidlowaOdp: Zamek
-  ZlaOdp1: "Kr\xF3lewicza"
-  ZlaOdp2: "Jednoro\u017Cca"
-  ZlaOdp3: Komornika
+  TrescZad: "Gdy j\u0105 obieramy,\r \u0142ezki ocieramy.\n\n__."
+  PrawidlowaOdp: cebula
+  ZlaOdp1: czosnek
+  ZlaOdp2: ziemniaki
+  ZlaOdp3: "jab\u0142ko"
   zdjeciedoZadania: {fileID: 0}

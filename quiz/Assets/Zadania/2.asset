@@ -13,11 +13,10 @@ MonoBehaviour:
   m_Name: 2
   m_EditorClassIdentifier: 
   typZad: 0
-  TrescZad: "Kiedy tata Kuby mia\u0142 31 lat, Kuba mia\u0142 8 lat. Teraz wiek taty
-    jest dok\u0142adnie dwa razy taki jak wiek Kuby. Ile lat ma obecnie Kuba?\n\nKuba
-    ma obecnie __."
-  PrawidlowaOdp: 23 lata
-  ZlaOdp1: 16 lat
-  ZlaOdp2: 31 lat
-  ZlaOdp3: 
+  TrescZad: "Ten \u015Bniegowy panicz,\r garnek ma na g\u0142owie.\r\nW miejscu nosa
+    marchew,\r ulepi\u0142 go cz\u0142owiek!\n\n__ ."
+  PrawidlowaOdp: "Ba\u0142wan"
+  ZlaOdp1: "Cz\u0142owiek"
+  ZlaOdp2: Ciasto
+  ZlaOdp3: "Snie\u017Cka"
   zdjeciedoZadania: {fileID: 0}

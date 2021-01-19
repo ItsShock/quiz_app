@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: 4
   m_EditorClassIdentifier: 
   typZad: 0
-  TrescZad: "W nocnej ciszy\r\n\u0142owi myszy.\n\n__ ."
-  PrawidlowaOdp: Kot
-  ZlaOdp1: Pies
-  ZlaOdp2: Konik polny
-  ZlaOdp3: Mysza
+  TrescZad: "Mam kapelusik\r nie do k\u0142aniania,\r mam zgrabn\u0105 n\xF3\u017Ck\u0119\r
+    nie do skakania.\n\n__."
+  PrawidlowaOdp: Grzyb
+  ZlaOdp1: "Cz\u0142owiek"
+  ZlaOdp2: Kapelusz
+  ZlaOdp3: Ryba
   zdjeciedoZadania: {fileID: 0}

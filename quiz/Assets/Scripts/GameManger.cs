@@ -51,6 +51,10 @@ public class GameManger : MonoBehaviour
         PlayerPrefs.SetInt("SaveUkonczonychlekcji", iloscUkonczonychLekcji);
     }
 
+    public int PobierzNrLekcji()
+    {
+        return numerLekcji;
+    }
     public int PobierzNrZadania()
     {
         return PlayerPrefs.GetInt("SaveNumerZadania");
@@ -63,10 +67,6 @@ public class GameManger : MonoBehaviour
         PlayerPrefs.SetInt("SaveNumerZadania", nrZadania);
     }
 
-    public int PobierzNrLekcji()
-    {
-        return numerLekcji;
-    }
     public void PobierzNumerLekcjiZPrzycisku(int nrLekcji)
     {
         numerLekcji = nrLekcji;

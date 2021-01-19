@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15a94ff69763a734d9d7e706d98ad844, type: 3}
+  m_Name: 15
+  m_EditorClassIdentifier: 
+  typZad: 0
+  TrescZad: "Ceg\u0142a wa\u017Cy kilo i p\xF3\u0142 ceg\u0142y. Ile wa\u017Cy ceg\u0142a?\n\n__
+    kg."
+  PrawidlowaOdp: 2
+  ZlaOdp1: 1,5
+  ZlaOdp2: 1
+  ZlaOdp3: 2,5
+  zdjeciedoZadania: {fileID: 0}

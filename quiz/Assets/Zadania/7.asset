@@ -13,10 +13,9 @@ MonoBehaviour:
   m_Name: 7
   m_EditorClassIdentifier: 
   typZad: 0
-  TrescZad: "Jak\u0105 por\u0119 roku mamy,\r\ngdy za morzem s\u0105 bociany?\n\n__
-    ."
-  PrawidlowaOdp: "Zim\u0119"
-  ZlaOdp1: Lato
-  ZlaOdp2: Wiosne
-  ZlaOdp3: "Jesie\u0144"
+  TrescZad: "Za lad\u0105 sklepow\u0105,\r sprzeda to i owo.\n\n__."
+  PrawidlowaOdp: sprzedawca
+  ZlaOdp1: 
+  ZlaOdp2: 
+  ZlaOdp3: 
   zdjeciedoZadania: {fileID: 0}

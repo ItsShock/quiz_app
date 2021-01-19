@@ -13,10 +13,8 @@ MonoBehaviour:
   m_Name: 11
   m_EditorClassIdentifier: 
   typZad: 0
-  TrescZad: "Babcia i dziadek maj\u0105 \u0142\u0105cznie 154 lata. Ile lat ma ka\u017Cde
-    z nich, skoro dzisiaj dziadek ma teraz dwa razy wi\u0119cej lat ile babcia mia\u0142a
-    gdy dziadek mia\u0142 tyle ile babcia ma teraz?\n\n__ ."
-  PrawidlowaOdp: Dziadek 88, Babcia 66
+  TrescZad: "Co jesieni\u0105 z d\u0119bu spada?\r Co ze smakiem dzik zajada?\n__."
+  PrawidlowaOdp: "\u017Co\u0142\u0119dzie"
   ZlaOdp1: 
   ZlaOdp2: 
   ZlaOdp3: 

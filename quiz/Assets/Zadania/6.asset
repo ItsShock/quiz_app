@@ -13,9 +13,14 @@ MonoBehaviour:
   m_Name: 6
   m_EditorClassIdentifier: 
   typZad: 0
-  TrescZad: "Co doda ciep\u0142a woda?\n\n__ doda."
-  PrawidlowaOdp: Zdrowia
-  ZlaOdp1: Nogi
-  ZlaOdp2: "Pieni\u0119dzy"
+  TrescZad: 'Dobre ma zwyczaje,
+
+    ludziom mleko daje.
+
+
+    __.'
+  PrawidlowaOdp: krowa
+  ZlaOdp1: 
+  ZlaOdp2: 
   ZlaOdp3: 
   zdjeciedoZadania: {fileID: 0}
