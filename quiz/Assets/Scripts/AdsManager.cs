@@ -6,9 +6,10 @@ using UnityEngine.Advertisements;
 public class AdsManager : MonoBehaviour
 {
     
+    
     IEnumerator WlaczReklame()
     {
-        Advertisement.Initialize("3978051", true);
+        Advertisement.Initialize("3978051", false);
         while (!Advertisement.IsReady())
         {
             yield return null;

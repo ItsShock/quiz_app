@@ -244,7 +244,7 @@ public class Lekcja : MonoBehaviour
 
     void ZakonczLekcje()
     {
-        
+        GetComponent<AdsManager>().WlaczReklameCor();
         AktywujPanelUkonczeniaLekcji(true);
         if(numerLekcji == gm.PobierzIloscUkonczonychLekcji())
         {
